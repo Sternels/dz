@@ -1,0 +1,36 @@
+@font-face {
+    font-family: 'BlueCurve';
+    src: url("../fonts/BlueCurve.ttf") format('truetype');
+    font-weight: 300;
+    font-style: normal;
+}
+
+* {
+    font-family: "BlueCurve"
+}
+
+body{
+    margin: 60px;
+    background-color: #B8A3A8;
+    color: #ffffff;
+    font-size: 20px;
+}
+
+.form-train{
+    background-color: #364854;
+    border-radius: 20px;
+}
+
+.btn {
+    background-color: #db7d5d00;
+    border-color: #ffffff;
+    font-size: 20px;
+}
+
+.shadow{
+    box-shadow: 10px 10px 10px #02020263 !important;
+}
+
+h2{
+    margin-top: 70px !important;
+}
