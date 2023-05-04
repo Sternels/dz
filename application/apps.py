@@ -1,6 +1,7 @@
 from django.apps import AppConfig
 from django.conf import settings
 import os
+import pandas as pd
 import pickle
 
 class ApplicationConfig(AppConfig):
@@ -8,5 +9,5 @@ class ApplicationConfig(AppConfig):
     name = 'application'
     path = os.path.join(settings.MODELS, 'model.pkl')
     with open(path, 'rb') as pickled:
-       data = pickle.load(pickled)
+       data = pd.read_pickle(pickled)
     logistic_regression = data

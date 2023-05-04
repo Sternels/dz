@@ -3,56 +3,65 @@
 {% block content %}
 
 <div class="row h-100 justify-content-center align-items-center">
-    <form class="row g-3 form-train p-5 shadow">
+    <form onsubmit="trainForm(event)" class="row g-3 form-train p-5 shadow">
         <h1>Кредитный конвейер</h1>
         <h2>Основная информация</h2>
         <div class="col-md-4">
           <label for="pasport" class="form-label">Паспорт</label>
-          <input type="text" name="pasport" class="form-control" id="pasport" placeholder="Введите паспорт">
+          <input type="text" name="pasport" class="form-control" id="pasport" placeholder="Введите паспорт" >
         </div>
         <div class="col-md-4">
           <label for="snils" class="form-label">Снилс</label>
-          <input type="text" name="snils" class="form-control" id="snils" placeholder="Введите снилс">
+          <input type="text" name="snils" class="form-control" id="snils" placeholder="Введите снилс" >
         </div>
         <div class="col-md-4">
             <label for="inn" class="form-label">ИНН</label>
-            <input type="text" name="inn" class="form-control" id="inn" placeholder="Введите ИНН">
+            <input type="text" name="inn" class="form-control" id="inn" placeholder="Введите ИНН" >
           </div>
         <div class="col-md-3">
           <label for="seniority" class="form-label">Стаж</label>
-          <input type="number" name="seniority" class="form-control" id="seniority" placeholder="Введите стаж">
+          <input type="number" name="seniority" class="form-control" id="seniority" placeholder="Введите стаж" >
         </div>
         <div class="col-md-3">
             <label for="age" class="form-label">Возраст</label>
-            <input type="number" name="age" class="form-control" id="age" placeholder="Введите возраст">
+            <input type="number" name="age" class="form-control" id="age" placeholder="Введите возраст" >
         </div>
         <div class="col-md-6">
           <label for="time" class="form-label">Срок запрашиваемого кредита</label>
-          <input type="number" name="time" class="form-control" id="time" placeholder="Введите срок запрашиваемого кредита">
+          <input type="number" name="time" class="form-control" id="time" placeholder="Введите срок запрашиваемого кредита" >
         </div>
         <div class="col-md-6">
-            <label for="home" class="form-label">Тип домовладения</label>
+            <label for="home" class="form-label" >Тип домовладения</label>
             <select id="home" name="home" class="form-select">
-                <option selected>Выберите...</option>
                 <option value="owner">Владелец</option>
                 <option value="rent">Квартиросъемщик</option>
             </select>
         </div>
         <div class="col-md-6">
-            <label for="marital" class="form-label">Семейное положение</label>
+            <label for="marital" class="form-label" >Семейное положение</label>
             <select id="marital" name="marital" class="form-select">
-                <option selected>Выберите...</option>
                 <option value="single">Холост</option>
                 <option value="married">Женат(Замужем)</option>
             </select>
         </div>
         <div class="col-md-12">
-            <label for="records" class="form-label">Наличие кредитов</label>
+            <label for="records" class="form-label" >Наличие кредитов</label>
             <select id="records" name="records" class="form-select">
-                <option selected>Выберите...</option>
                 <option value="yes_rec">Имеются</option>
                 <option value="no_rec">Не имеются</option>
             </select>
+        </div>
+        <div class="col-md-6">
+          <label for="finrat" class="form-label">Рейтинг платежеспособности</label>
+          <input type="number" name="finrat" class="form-control" id="finrat" placeholder="Введите рейтинг платежеспособности">
+        </div>
+        <div class="col-md-6">
+          <label for="job" class="form-label" >Работа</label>
+          <select id="job" name="job" class="form-select">
+              <option value="freelance">Внештатный</option>
+              <option value="partime">Штат</option>
+              <option value="no_rec">Частично-занятый</option>
+          </select>
         </div>
         <h2>Расходы</h2>
         <div class="col-md-6">
@@ -60,7 +69,7 @@
             <input type="number" name="expenses1" class="form-control" id="expenses1" placeholder="Введите расходы на содержание семьи">
           </div>
           <div class="col-md-6">
-              <label for="expenses2" class="form-label">Платежи за коммунальные услуги</label>
+              <label for="expenses2" class="form-label" >Платежи за коммунальные услуги</label>
               <input type="number" name="expenses2" class="form-control" id="expenses2" placeholder="Введите платежи за коммунальные услуги">
           </div>
           <div class="col-md-6">
@@ -73,7 +82,7 @@
           </div>
           <h2>Доходы</h2>
           <div class="col-md-6">
-            <label for="income" class="form-label">Доходы</label>
+            <label for="income" class="form-label" >Доходы</label>
             <input type="number" name="income" class="form-control" id="income" placeholder="Введите доходы">
           </div>
           <div class="col-md-6">
@@ -82,11 +91,11 @@
           </div>
           <h2>Информация по кредиту</h2>
           <div class="col-md-6">
-            <label for="debt" class="form-label">Сумма долга</label>
+            <label for="debt" class="form-label" >Сумма долга</label>
             <input type="number" name="debt" class="form-control" id="debt" placeholder="Введите сумму долга по прошлым кредитам">
           </div>
           <div class="col-md-6">
-              <label for="amount" class="form-label">Сумма запрашиваемого кредита</label>
+              <label for="amount" class="form-label" >Сумма запрашиваемого кредита</label>
               <input type="number" name="amount" class="form-control" id="amount" placeholder="Введите сумму запрашиваемого кредита">
           </div>
           <div class="col-md-6">

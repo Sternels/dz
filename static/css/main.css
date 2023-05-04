@@ -27,6 +27,13 @@ body{
     font-size: 20px;
 }
 
+.btn:hover {
+    background-color: #ffffff;
+    border-color: #364854;
+    color: #364854;
+    font-size: 20px;
+}
+
 .shadow{
     box-shadow: 10px 10px 10px #02020263 !important;
 }
