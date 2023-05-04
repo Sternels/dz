@@ -1,115 +1,77 @@
 {% extends 'base.html' %}
 
 {% block content %}
+    <div>
+        <div class="row h-100 justify-content-center align-items-center">
+            <form onsubmit="trainForm(event)" class="row g-3 form-train p-5 shadow">
+                <h1>Кредитный конвейер</h1>
+                <h2>Основная информация</h2>
+                <div class="col-md-4">
+                    <label for="pasport" class="form-label">Паспорт</label>
+                    <input type="text" name="pasport" class="form-control" id="pasport" placeholder="Введите паспорт" required>
+                </div>
+                <div class="col-md-4">
+                    <label for="snils" class="form-label">Снилс</label>
+                    <input type="text" name="snils" class="form-control" id="snils" placeholder="Введите снилс" required>
+                </div>
+                <div class="col-md-4">
+                    <label for="inn" class="form-label">ИНН</label>
+                    <input type="text" name="inn" class="form-control" id="inn" placeholder="Введите ИНН" required>
+                </div>
 
-<div class="row h-100 justify-content-center align-items-center">
-    <form onsubmit="trainForm(event)" class="row g-3 form-train p-5 shadow">
-        <h1>Кредитный конвейер</h1>
-        <h2>Основная информация</h2>
-        <div class="col-md-4">
-          <label for="pasport" class="form-label">Паспорт</label>
-          <input type="text" name="pasport" class="form-control" id="pasport" placeholder="Введите паспорт" >
+                <h2>Расходы</h2>
+                <div class="col-md-6">
+                    <label for="expenses1" class="form-label">Расходы на содержание семьи</label>
+                    <input type="number" step="0.01" name="expenses1" class="form-control" id="expenses1"
+                           placeholder="Введите расходы на содержание семьи" required>
+                </div>
+                <div class="col-md-6">
+                    <label for="expenses2" class="form-label">Платежи за коммунальные услуги</label>
+                    <input type="number" step="0.01" name="expenses2" class="form-control" id="expenses2"
+                           placeholder="Введите платежи за коммунальные услуги" required>
+                </div>
+                <div class="col-md-6">
+                    <label for="expenses3" class="form-label">Расходы на детей</label>
+                    <input type="number" step="0.01" name="expenses3" class="form-control" id="expenses3"
+                           placeholder="Введите расходы на детей" required>
+                </div>
+                <div class="col-md-6">
+                    <label for="expenses4" class="form-label">Алиментные обязательства</label>
+                    <input type="number" step="0.01" name="expenses4" class="form-control" id="expenses4"
+                           placeholder="Если такие имеются" required>
+                </div>
+                <h2>Доходы</h2>
+                <div class="col-md-6">
+                    <label for="salary" class="form-label">Доходы</label>
+                    <input type="number" step="0.01" name="salary" class="form-control" id="salary"
+                           placeholder="Введите доходы" required>
+                </div>
+                <div class="col-md-6">
+                    <label for="spouse_salary" class="form-label">Доходы супруги(а)</label>
+                    <input type="number" step="0.01" name="spouse_salary" class="form-control" id="spouse_salary"
+                           placeholder="Введите доходы супруга(и)" required>
+                </div>
+                <h2>Информация по кредиту</h2>
+                <div class="col-md-4">
+                    <label for="loan_amount" class="form-label">Сумма запрашиваемого кредита</label>
+                    <input type="number" step="0.01" name="loan_amount" class="form-control" id="loan_amount"
+                           placeholder="Введите сумму запрашиваемого кредита" required>
+                </div>
+                <div class="col-md-4">
+                    <label for="loan_term" class="form-label">Срок запрашиваемого кредита</label>
+                    <input type="number" name="loan_term" class="form-control" id="loan_term"
+                           placeholder="Введите срок запрашиваемого кредита" required>
+                </div>
+                <div class="col-md-4">
+                    <label for="interest_rate" class="form-label">Процентная ставка</label>
+                    <input type="number" step="0.01" name="interest_rate" class="form-control" id="interest_rate"
+                           placeholder="Введите процентную ставку" required>
+                </div>
+                <div class="col-12">
+                    <button type="submit" class="btn btn-primary">Отправить</button>
+                </div>
+            </form>
         </div>
-        <div class="col-md-4">
-          <label for="snils" class="form-label">Снилс</label>
-          <input type="text" name="snils" class="form-control" id="snils" placeholder="Введите снилс" >
-        </div>
-        <div class="col-md-4">
-            <label for="inn" class="form-label">ИНН</label>
-            <input type="text" name="inn" class="form-control" id="inn" placeholder="Введите ИНН" >
-          </div>
-        <div class="col-md-3">
-          <label for="seniority" class="form-label">Стаж</label>
-          <input type="number" name="seniority" class="form-control" id="seniority" placeholder="Введите стаж" >
-        </div>
-        <div class="col-md-3">
-            <label for="age" class="form-label">Возраст</label>
-            <input type="number" name="age" class="form-control" id="age" placeholder="Введите возраст" >
-        </div>
-        <div class="col-md-6">
-          <label for="time" class="form-label">Срок запрашиваемого кредита</label>
-          <input type="number" name="time" class="form-control" id="time" placeholder="Введите срок запрашиваемого кредита" >
-        </div>
-        <div class="col-md-6">
-            <label for="home" class="form-label" >Тип домовладения</label>
-            <select id="home" name="home" class="form-select">
-                <option value="owner">Владелец</option>
-                <option value="rent">Квартиросъемщик</option>
-            </select>
-        </div>
-        <div class="col-md-6">
-            <label for="marital" class="form-label" >Семейное положение</label>
-            <select id="marital" name="marital" class="form-select">
-                <option value="single">Холост</option>
-                <option value="married">Женат(Замужем)</option>
-            </select>
-        </div>
-        <div class="col-md-12">
-            <label for="records" class="form-label" >Наличие кредитов</label>
-            <select id="records" name="records" class="form-select">
-                <option value="yes_rec">Имеются</option>
-                <option value="no_rec">Не имеются</option>
-            </select>
-        </div>
-        <div class="col-md-6">
-          <label for="finrat" class="form-label">Рейтинг платежеспособности</label>
-          <input type="number" name="finrat" class="form-control" id="finrat" placeholder="Введите рейтинг платежеспособности">
-        </div>
-        <div class="col-md-6">
-          <label for="job" class="form-label" >Работа</label>
-          <select id="job" name="job" class="form-select">
-              <option value="freelance">Внештатный</option>
-              <option value="partime">Штат</option>
-              <option value="no_rec">Частично-занятый</option>
-          </select>
-        </div>
-        <h2>Расходы</h2>
-        <div class="col-md-6">
-            <label for="expenses1" class="form-label">Расходы на содержание семьи</label>
-            <input type="number" name="expenses1" class="form-control" id="expenses1" placeholder="Введите расходы на содержание семьи">
-          </div>
-          <div class="col-md-6">
-              <label for="expenses2" class="form-label" >Платежи за коммунальные услуги</label>
-              <input type="number" name="expenses2" class="form-control" id="expenses2" placeholder="Введите платежи за коммунальные услуги">
-          </div>
-          <div class="col-md-6">
-            <label for="expenses3" class="form-label">Расходы на детей</label>
-            <input type="number" name="expenses3" class="form-control" id="expenses3" placeholder="Введите расходы на детей">
-          </div>
-          <div class="col-md-6">
-              <label for="expenses4" class="form-label">Алиментные обязательства</label>
-              <input type="number" name="expenses4" class="form-control" id="expenses4" placeholder="Если такие имеются">
-          </div>
-          <h2>Доходы</h2>
-          <div class="col-md-6">
-            <label for="income" class="form-label" >Доходы</label>
-            <input type="number" name="income" class="form-control" id="income" placeholder="Введите доходы">
-          </div>
-          <div class="col-md-6">
-              <label for="assets" class="form-label">Акции</label>
-              <input type="number" name="assets" class="form-control" id="assets" placeholder="Введите акции">
-          </div>
-          <h2>Информация по кредиту</h2>
-          <div class="col-md-6">
-            <label for="debt" class="form-label" >Сумма долга</label>
-            <input type="number" name="debt" class="form-control" id="debt" placeholder="Введите сумму долга по прошлым кредитам">
-          </div>
-          <div class="col-md-6">
-              <label for="amount" class="form-label" >Сумма запрашиваемого кредита</label>
-              <input type="number" name="amount" class="form-control" id="amount" placeholder="Введите сумму запрашиваемого кредита">
-          </div>
-          <div class="col-md-6">
-            <label for="price" class="form-label">Цена за товар</label>
-            <input type="number" name="price" class="form-control" id="price" placeholder="Введите цену за товар">
-        </div>
-        <div class="col-md-6">
-            <label for="savings" class="form-label">Сумма сбережений</label>
-            <input type="number" name="savings" class="form-control" id="savings" placeholder="Введите сумму сбережений">
-        </div>
-        <div class="col-12">
-          <button type="submit" class="btn btn-primary">Отправить</button>
-        </div>
-      </form>
-</div>
+    </div>
 
 {% endblock %}

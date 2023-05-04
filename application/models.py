@@ -2,25 +2,19 @@ from django.db import models
 
 
 class CreditPipeline(models.Model):
-    status = models.CharField(max_length=100)
-    seniority = models.IntegerField()
-    home = models.CharField(max_length=100)
-    time = models.IntegerField()
-    age = models.IntegerField()
-    marital = models.CharField(max_length=100)
-    records = models.CharField(max_length=100)
-    job = models.CharField(max_length=100)
+    result = models.BooleanField(default=False)
     expenses = models.IntegerField()
     income = models.IntegerField()
-    assets = models.IntegerField()
-    debt = models.IntegerField()
-    amount = models.IntegerField()
-    price = models.IntegerField()
-    finrat = models.DecimalField(max_digits=12, decimal_places=9)
-    savings = models.DecimalField(max_digits=12, decimal_places=9)
-    pasport = models.IntegerField()
-    snils = models.IntegerField()
-    inn = models.IntegerField()
+    salary = models.FloatField()
+    spouse_salary = models.FloatField()
+    pasport = models.CharField(max_length=100)
+    snils = models.CharField(max_length=100)
+    inn = models.CharField(max_length=100)
+    loan_amount = models.FloatField()
+    loan_term = models.IntegerField()
+    interest_rate = models.FloatField()
+    monthly_payment = models.FloatField()
+    main_sum = models.FloatField()
 
     def __str__(self):
-        return self.status
+        return self.pasport
